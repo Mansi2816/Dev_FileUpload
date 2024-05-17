@@ -1,33 +1,31 @@
+
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [title,setTitle] = useState("")
+  const [file,setFile] = useState("null")
 
+const SubmitImage= async(e) => {
+e.preventDefault()
+//FormData is method provided by java,which we will store in a object
+const formData = new FormData()
+//in formData we will store 2 variables
+//variable name and state
+formData.append('title',title)
+formData.append('file',file)
+console.log(title,file);
+
+}
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <>    
+      <form className='formStyle' onSubmit={SubmitImage}>
+      <h3> Upload pdf in react</h3> <br/>
+      <input type='text' className='form-control' placeholder='title' required onChange={(e)=> setTitle(e.target.value)}/>
+      <input type="file" className='form-control' accept='application/pdf' required onChange={(e)=> setFile(e.target.files[0])}/>
+     <br/>
+     <button className="btn btn-primary" type='submit'>Submit</button>
+      </form>
     </>
   )
 }
