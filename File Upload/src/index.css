@@ -83,3 +83,19 @@ button:focus-visible {
   border-radius: 5px;
   margin-bottom: 10px;
 }
+
+
+.uploaded{
+  margin-top: 30px;
+ width: 100%;
+ text-align: center;
+  
+}
+.output-div{
+  display: flex;
+    justify-content: space-evenly;
+}
+.inner-div{
+  display: flex;
+    flex-direction: column;
+}

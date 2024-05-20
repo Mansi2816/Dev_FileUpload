@@ -5,4 +5,4 @@ const PdfSchema = new mongoose.Schema({
     title:String
 },{collection: "PdfDetails" })
 
-mongoose.model('PdfDetails', PdfSchema)
+module.exports = mongoose.model('PdfDetails', PdfSchema);
